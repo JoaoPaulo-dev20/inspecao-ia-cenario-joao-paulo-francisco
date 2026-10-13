@@ -1,8 +1,8 @@
 # Código da IA sob inspeção: Controle de Irrigação Automatizada
 
-**Dupla:** [nome do estudante A] e [nome do estudante B]
-**Disciplina:** Qualidade de Software, ADS, IFCE Campus Boa Viagem
-**Ferramenta de IA usada:** [ex.: ChatGPT, Claude, Gemini, Copilot]
+**Dupla:** João Paulo e Francisco
+**Disciplina:** Teste e Qualidade de Software, ADS, IFCE Campus Boa Viagem
+**Ferramenta de IA usada:** Gemini, chatgpt
 
 > Apaguem as instruções em itálico ao preencher. Sigam as partes **na ordem**. A Parte 3 só começa quando o professor publicar o depoimento no Classroom.
 
