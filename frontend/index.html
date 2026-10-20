@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123e32">
+  <meta name="description" content="Simulador visual do controle de irrigação Irriga Sertão.">
+  <title>Irriga Sertão · Controle de irrigação</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="commonjs-bridge.js"></script>
+  <script defer src="../src/irrigacao.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <aside class="sidebar" aria-label="Navegação principal">
+    <a class="brand" href="#conteudo" aria-label="Irriga Sertão, início">
+      <img src="logo.svg" alt="" width="42" height="42">
+      <span>Irriga<span class="brand-accent">Sertão</span><small>CONTROLE DE IRRIGAÇÃO</small></span>
+    </a>
+    <div class="nav-label">SEU PAINEL</div>
+    <nav class="navigation">
+      <a class="nav-link active" href="#conteudo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+        Visão geral
+      </a>
+      <a class="nav-link" href="#simulacao">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="16" cy="17" r="3"/></svg>
+        Simulação
+      </a>
+      <a class="nav-link" href="#leituras">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16M8 15l4-5 4 2 4-7"/></svg>
+        Leituras
+      </a>
+      <button class="nav-link" id="about-button" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg>
+        Como funciona
+      </button>
+    </nav>
+    <div class="sidebar-note">
+      <svg viewBox="0 0 120 96" aria-hidden="true"><path d="M60 81V39"/><path d="M59 57C31 60 28 43 25 28c24 0 40 6 34 29Z"/><path d="M61 45c0-22 17-29 34-31 0 21-10 33-34 31Z"/><path d="M27 82h66M36 90h48"/></svg>
+      <strong>Cuidar começa<br>com uma boa leitura.</strong>
+      <p>Experimente diferentes condições e acompanhe o controle.</p>
+      <span class="sidebar-tag"><span class="status-dot"></span> Ambiente de demonstração</span>
+    </div>
+    <div class="sidebar-footer">Irriga Sertão <span>v1.0</span></div>
+  </aside>
+
+  <main id="conteudo" tabindex="-1">
+    <header class="page-header">
+      <div><div class="eyebrow">IRRIGAÇÃO INTELIGENTE</div><h1>Controle de irrigação<span>.</span></h1><p>Leituras claras. Decisões seguras. Água na medida certa.</p></div>
+      <button id="reset-button" class="button button-outline" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 2 8M4 4v6h6"/></svg>
+        Restaurar exemplo
+      </button>
+    </header>
+    <noscript><p class="error-message">Ative o JavaScript do navegador para usar o simulador.</p></noscript>
+    <p id="load-error" class="error-message" hidden>Não foi possível carregar o controle. Extraia a pasta inteira do ZIP antes de abrir a interface.</p>
+
+    <section class="welcome-banner" aria-label="Apresentação">
+      <div><span class="banner-label"><span class="status-dot"></span> SIMULADOR INTERATIVO</span><h2>Seu solo, em equilíbrio.</h2><p>Registre uma leitura e veja quando a bomba deve ligar, desligar ou manter seu estado.</p></div>
+      <div class="banner-art" aria-hidden="true">
+        <svg viewBox="0 0 330 145"><defs><linearGradient id="leaf-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9ecc4"/><stop offset="1" stop-color="#62ba8c"/></linearGradient></defs><ellipse cx="180" cy="122" rx="104" ry="10" fill="#153e32"/><path d="M95 120c8-35 23-50 48-51 1 28-13 47-48 51Z" fill="#356b4f"/><path d="M201 117c7-26 22-40 48-43-4 28-20 44-48 43Z" fill="#3c7756"/><path d="M158 120V62" fill="none" stroke="#a5e6bd" stroke-width="4" stroke-linecap="round"/><path d="M157 89c-37 2-50-18-53-45 29 0 56 11 53 45Z" fill="url(#leaf-fill)"/><path d="M159 70c-1-35 23-52 53-54-1 33-19 55-53 54Z" fill="url(#leaf-fill)"/><path d="m126 65 31 24m3-20 32-34" fill="none" stroke="#347252" stroke-width="2" stroke-linecap="round"/><path d="M264 44c-9 12-15 21-15 27a15 15 0 0 0 30 0c0-6-6-15-15-27Z" fill="#9cddc2" opacity=".75"/><circle cx="82" cy="30" r="3" fill="#b7e9be"/><circle cx="238" cy="24" r="2" fill="#b7e9be"/><path d="M48 87h25m-12-12v25" stroke="#b7e9be" opacity=".3" stroke-width="2"/></svg>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Resumo do controle" aria-live="polite" aria-atomic="true">
+      <article class="metric-card"><div class="metric-top"><span>Umidade média</span><span class="metric-icon green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C8 8 5 12 5 15a7 7 0 0 0 14 0c0-3-3-7-7-12Z"/><path d="M8 15a4 4 0 0 0 4 4"/></svg></span></div><div class="metric-value"><span id="humidity-value">—</span><small id="humidity-unit">%</small></div><div class="metric-bottom"><span id="humidity-description">Últimas 5 leituras</span></div><div class="metric-progress"><span id="humidity-progress"></span></div></article>
+      <article class="metric-card"><div class="metric-top"><span>Temperatura</span><span class="metric-icon orange"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14V5a3 3 0 0 1 6 0v9a5 5 0 1 1-6 0ZM12 8v9"/></svg></span></div><div class="metric-value"><span id="temperature-value">—</span><small id="temperature-unit">°C</small></div><div class="metric-bottom"><span id="temperature-description">Última leitura válida</span></div></article>
+      <article class="metric-card"><div class="metric-top"><span>Estado da bomba</span><span class="metric-icon blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9M6 6a8 8 0 1 0 12 0"/></svg></span></div><div class="metric-value metric-word" id="pump-value">Desligada</div><div class="metric-bottom"><span class="status-dot" id="pump-dot"></span><span id="pump-description">Aguardando uma decisão</span></div></article>
+      <article class="metric-card"><div class="metric-top"><span>Leituras válidas</span><span class="metric-icon violet"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 7v6c0 5 9 8 9 8s9-3 9-8V7l-9-4Z"/><path d="m8 12 3 3 5-6"/></svg></span></div><div class="metric-value"><span id="valid-value">—</span><small id="valid-total">/ 5</small></div><div class="metric-bottom"><span id="valid-description">Janela usada no cálculo</span></div></article>
+    </section>
+
+    <div class="dashboard-grid">
+      <section class="card chart-card" aria-labelledby="chart-heading">
+        <div class="card-heading"><div><span class="section-label">ACOMPANHAMENTO</span><h2 id="chart-heading">Evolução da umidade</h2></div><span class="chip">Até 12 leituras</span></div>
+        <p class="card-subtitle">O cálculo considera somente as 5 leituras mais recentes.</p>
+        <div class="chart-wrap"><svg id="humidity-chart" viewBox="0 0 650 245" role="img" aria-labelledby="chart-heading chart-description"></svg></div>
+        <p id="chart-description" class="sr-only">Gráfico das leituras de umidade registradas.</p>
+        <div class="chart-legend"><span><i class="legend-dot"></i> Umidade válida</span><span><i class="legend-line"></i> Limites de 30% e 40%</span><span><i class="legend-invalid">×</i> Leitura inválida</span></div>
+      </section>
+      <section class="card decision-card" aria-labelledby="decision-heading" aria-live="polite" aria-atomic="true">
+        <div class="card-heading"><div><span class="section-label">PRÓXIMA AÇÃO</span><h2 id="decision-heading">Decisão do controle</h2></div><span class="decision-orbit" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v9M6 6a8 8 0 1 0 12 0"/></svg></span></div>
+        <span class="decision-badge" id="decision-badge">Analisando</span>
+        <h3 id="decision-title">—</h3><p id="decision-reason" class="decision-reason">Aguardando leituras.</p>
+        <button class="button button-primary" id="apply-button" type="button">Aplicar decisão</button>
+        <p class="decision-footnote">A ação é aplicada somente neste simulador.</p>
+      </section>
+    </div>
+
+    <section class="card simulation-card" id="simulacao" aria-labelledby="simulation-heading">
+      <div class="card-heading"><div><span class="section-label">EXPLORE AS CONDIÇÕES</span><h2 id="simulation-heading">Adicionar uma leitura</h2></div><span class="chip chip-green">Dados simulados</span></div>
+      <div class="scenario-row" role="group" aria-label="Carregar um cenário de exemplo">
+        <span>Experimente:</span>
+        <button class="scenario-button selected" type="button" data-scenario="dry" aria-pressed="true">Solo seco</button>
+        <button class="scenario-button" type="button" data-scenario="balanced" aria-pressed="false">Solo equilibrado</button>
+        <button class="scenario-button" type="button" data-scenario="heat" aria-pressed="false">Calor intenso</button>
+        <button class="scenario-button" type="button" data-scenario="failure" aria-pressed="false">Falha no sensor</button>
+      </div>
+      <form id="reading-form">
+        <div class="reading-fields">
+          <div class="field humidity-field"><label for="humidity-input">Umidade do solo <span>%</span></label><div class="humidity-controls"><input id="humidity-range" type="range" min="0" max="100" step="0.1" value="25" aria-label="Ajustar umidade do solo"><input id="humidity-input" type="number" step="any" value="25" required inputmode="decimal" aria-describedby="humidity-help"></div><small id="humidity-help">Faixa válida: de 0% a 100%.</small></div>
+          <div class="field"><label for="temperature-input">Temperatura <span>°C</span></label><input id="temperature-input" type="number" step="any" value="27" required inputmode="decimal" aria-describedby="temperature-help"><small id="temperature-help">Faixa válida: de −10 °C a 60 °C.</small></div>
+          <div class="field"><label for="sensor-input">Condição do sensor</label><select id="sensor-input"><option value="normal">Sensores normais</option><option value="humidity-failure">Falha na leitura da umidade</option><option value="disconnected">Temperatura desconectada</option></select><small>Altere para simular uma leitura inválida.</small></div>
+          <div class="submit-field"><button class="button button-primary" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Registrar leitura</button></div>
+        </div>
+      </form>
+      <div class="pump-controls"><div class="pump-control-label"><strong>Condição atual da bomba</strong><small>Ajuste o estado para observar a decisão.</small></div><label class="switch-label" for="pump-toggle"><input id="pump-toggle" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span><span>Bomba ligada</span></label><div class="minutes-field"><label for="minutes-input">Tempo ligada</label><div><input id="minutes-input" type="number" min="0" step="any" value="0" disabled inputmode="decimal"><span>min</span></div></div></div>
+    </section>
+
+    <div class="bottom-grid">
+      <section class="card history-card" id="leituras" aria-labelledby="history-heading">
+        <div class="card-heading"><div><span class="section-label">DADOS DO SENSOR</span><h2 id="history-heading">Histórico de leituras</h2></div><button id="clear-button" class="text-button" type="button">Limpar histórico</button></div>
+        <p id="history-description" class="card-subtitle">Da mais recente para a mais antiga.</p>
+        <div class="table-wrap"><table><caption class="sr-only">Leituras simuladas de umidade e temperatura, da mais recente para a mais antiga.</caption><thead><tr><th scope="col">Leitura</th><th scope="col">Umidade</th><th scope="col">Temperatura</th><th scope="col">Validação</th></tr></thead><tbody id="history-body"></tbody></table></div>
+        <p class="table-footnote" id="history-footer">—</p>
+      </section>
+      <section class="card alerts-card" aria-labelledby="alerts-heading" aria-live="polite" aria-atomic="true">
+        <div class="card-heading"><div><span class="section-label">ATENÇÃO AO CULTIVO</span><h2 id="alerts-heading">Alertas do controle</h2></div><span id="alert-count" class="alert-count">0</span></div>
+        <div id="alerts-list"></div>
+      </section>
+    </div>
+    <footer class="page-footer"><span><img src="logo.svg" alt="" width="20" height="20"> Irriga Sertão</span><p>Simulador de controle de irrigação · Projeto acadêmico</p></footer>
+  </main>
+
+  <div id="feedback" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="about-dialog" aria-labelledby="about-heading"><div class="dialog-heading"><span class="section-label">IRRIGA SERTÃO</span><button class="dialog-close" id="close-about" aria-label="Fechar explicação" type="button">×</button></div><h2 id="about-heading">Entenda o simulador</h2><p>Os dados são exemplos. Você pode registrar novas leituras, alterar o estado da bomba e experimentar condições diferentes.</p><ul><li>A média usa as leituras válidas entre as 5 mais recentes. São necessárias pelo menos 3.</li><li>Com a bomba desligada, uma média abaixo de 30% indica que ela deve ligar.</li><li>Com a bomba ligada, uma média a partir de 40% indica que ela deve desligar.</li><li>A bomba deve desligar ao completar 60 minutos ligada ou quando não houver uma média confiável.</li><li>Os alertas mostram falha no sensor, solo crítico e temperatura alta.</li></ul><p class="dialog-note">Esta tela simula decisões. Ela não se conecta a sensores ou a uma bomba real.</p><button class="button button-primary" id="understood-button" type="button">Entendi, vamos simular</button></dialog>
+</body>
+</html>
