@@ -152,3 +152,24 @@ test("M06: retorna null com apenas duas válidas nas últimas cinco", () => {
 
   assert.equal(mediaUmidade(leituras), null);
 });
+
+
+test("AUT01: verifica leitura com umidade 90 e temperatura 30", () => {
+  const leitura = { umidade: 90, temperatura: 30 };
+
+  assert.equal(validarLeitura(leitura), true);
+});
+
+
+test("AUT02: rejeita temperatura acima do limite", () => {
+  const leitura = { umidade: 90, temperatura: 61 };
+
+  assert.equal(validarLeitura(leitura), false);
+});
+
+
+test("AUT03: desliga bomba ao completar 60 minutos", () => {
+  const resultado = decidirBomba(true, 20, 60);
+
+  assert.equal(resultado, "DESLIGAR");
+});
