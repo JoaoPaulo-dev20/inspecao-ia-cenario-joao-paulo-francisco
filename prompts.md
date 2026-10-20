@@ -119,3 +119,33 @@ Este registro complementar não preenche os prompts obrigatórios das Partes 1 e
 - A IA sugeriu os demais casos e escreveu o código dos testes V01 a V08 e M01 a M06.
 - Foi realizada apenas a conferência de sintaxe com node --check, sem erros.
 - A execução dos novos testes e a revisão cruzada pelo colega continuam pendentes.
+
+---
+
+## 20/10/2026 - Aprendizado sobre o resultado esperado de uma leitura
+
+**Ferramenta:** ChatGPT.
+
+**Dados escolhidos por Francisco:**
+
+```text
+Umidade: 90
+Temperatura: 30
+```
+
+**Prompt do usuário:**
+
+```text
+não sei o que botar, coloque o idela para mim, isso vai apenas me ajudar, estou aprendendo, então faça para eu aprender
+```
+
+**Resumo da explicação da IA:** o resultado esperado é leitura válida (`true`). A umidade 90 está no intervalo inclusivo de 0 a 100, e a temperatura 30 está no intervalo inclusivo de -10 a 60. Os dois valores atendem aos requisitos RF01 e RF02. Em um teste, a resposta obtida deve ser comparada com esse resultado esperado.
+
+**Autorização do registro:**
+
+```text
+certo, registre para eu aprender
+```
+
+**Uso da resposta:** explicação registrada para estudo. Francisco escolheu os valores de entrada; a conclusão e a justificativa foram fornecidas pela IA. Não foi acrescentado nem executado um novo teste para o caso 90/30. A revisão pelo colega continua pendente.
+
