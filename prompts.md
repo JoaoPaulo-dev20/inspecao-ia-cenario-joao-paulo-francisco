@@ -112,3 +112,10 @@ Este registro complementar não preenche os prompts obrigatórios das Partes 1 e
 - **Prompt que mais ajudou e por quê:** [ ]
 - **Prompt que gerou a resposta mais problemática e por quê:** [ ]
 - **Se eu fizesse de novo, perguntaria à IA de outra forma assim:** [ ]
+
+## 20/10/2026 - Apoio na montagem de testes
+- Pedido, em resumo: orientação passo a passo para montar testes de validarLeitura e mediaUmidade.
+- Francisco escolheu o valor 101 para o primeiro caso.
+- A IA sugeriu os demais casos e escreveu o código dos testes V01 a V08 e M01 a M06.
+- Foi realizada apenas a conferência de sintaxe com node --check, sem erros.
+- A execução dos novos testes e a revisão cruzada pelo colega continuam pendentes.
