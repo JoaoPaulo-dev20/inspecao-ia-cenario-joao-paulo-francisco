@@ -44,6 +44,52 @@
 
 ---
 
+## Exemplo de depoimento fictício para estudo
+
+**Data:** 20/10/2026.
+
+**Ferramenta:** ChatGPT.
+
+**Prompt do usuário:**
+
+```text
+Não tem outro anexo, da pra você criar um depoimento?
+```
+
+**Resumo da resposta:** criação de um exemplo fictício de relato sobre irrigação, explicitamente identificado como simulação. O texto não corresponde a entrevista real nem ao depoimento fornecido pelo professor.
+
+**Continuação do usuário:**
+
+```text
+Confio em você, pode ser esse
+```
+
+**Uso da resposta:** exemplo escolhido pelo usuário e salvo em `depoimento-simulado.md` como material de estudo. A aceitação desse texto pelo professor não foi confirmada. A publicação deste exemplo não conclui a Parte 3, que depende do material exigido pelo professor ou de uma substituição aceita por ele.
+
+---
+
+## Preparação assistida das propostas de testes
+
+**Data:** 20/10/2026.
+
+**Ferramenta:** ChatGPT.
+
+**Solicitação do usuário (resumo):** preparar testes para as quatro funções, com explicações claras, linguagem natural e organização conforme a sequência da atividade.
+
+**Trecho do prompt:**
+
+> deixe tudo bem humanizado e explicado de forma humana, siga tudo de acordo e em ordem que o professor pediu
+
+**Resumo da resposta:** criação de 48 propostas a partir de `requisitos.md`, com 12 casos por função. Foram incluídos valores de fronteira, falhas de sensores, arredondamento, janela das cinco leituras recentes, prioridade da segurança e combinações de alertas. As propostas e o roteiro foram identificados como material criado com apoio de IA, separado dos testes próprios da dupla e dos 28 testes da IA publicados anteriormente.
+
+**Uso da resposta:** material de estudo salvo em `evidencias/casos-propostos-ia.js`, `evidencias/propostas-de-testes-ia.js` e `evidencias/roteiro-de-verificacao.md`. A dupla ainda precisa elaborar seus testes próprios, definir a divisão e realizar a revisão cruzada. Nenhuma atividade de autoria ou revisão foi atribuída aos integrantes pelo assistente.
+
+**Validação realizada nesta preparação:** verificação de sintaxe dos dois arquivos JavaScript, conferência de 48 IDs únicos e de 12 casos por função, sem importar o módulo de irrigação. Estas propostas não foram executadas contra o código; os resultados obtidos e a tabela de defeitos continuam pendentes de revisão e execução.
+
+Este registro complementar não preenche os prompts obrigatórios das Partes 1 e 2.6 que permanecem pendentes acima.
+
+---
+
 ## Balanço final
 
 - **Total de prompts registrados:** [número]
