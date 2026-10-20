@@ -90,6 +90,22 @@ Este registro complementar não preenche os prompts obrigatórios das Partes 1 e
 
 ---
 
+## Revisão simulada para estudo e execução técnica da IA
+
+**Data:** 20/10/2026.
+
+**Ferramenta:** ChatGPT.
+
+**Solicitação do usuário (resumo):** elaborar o material técnico e uma revisão simulada para pesquisa ou estudo.
+
+**Resumo da resposta:** a mesma IA examinou os casos por duas perspectivas didáticas, uma voltada aos requisitos e outra à estrutura e à cobertura dos testes. As perspectivas foram identificadas como simulação, sem atribuição de ações a estudantes ou alegação de revisão humana independente.
+
+**Execução realizada:** 48 de 48 casos de apoio e 28 de 28 testes anteriores da IA passaram contra o código original. A saída real, a versão do Node e a identificação do código estão em `evidencias/resultados-execucao-apoio-ia.txt`. Nenhuma correção no módulo foi necessária para essas execuções.
+
+**Uso da resposta:** revisão registrada em `evidencias/revisao-simulada-ia.md` e roteiro atualizado com os resultados comprovados pelas asserções. Os dois conjuntos têm casos sobrepostos e a execução não comprova ausência de defeitos. Os testes próprios, a revisão humana e as análises exigidas dos integrantes continuam pendentes.
+
+---
+
 ## Balanço final
 
 - **Total de prompts registrados:** [número]
