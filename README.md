@@ -125,17 +125,42 @@ Até esta etapa, **nenhum defeito foi identificado pelos casos já executados**.
 
 ### 2.6 Os testes da IA
 
-**Situação: pendente.** Esta etapa é diferente dos testes da dupla que foram preparados com apoio de IA. Será necessário solicitar à IA testes para o código que ela mesma escreveu, registrar o prompt em `prompts.md`, salvar os casos em `evidencias/testes-gerados-pela-ia.js` e executá-los contra a versão original do código.
 
-**Comando previsto:**
+### 2.6 Os testes da IA
 
-```powershell
-node --test evidencias/testes-gerados-pela-ia.js
-```
+Foram executados os testes gerados pela IA, salvos em
+`evidencias/testes-gerados-pela-ia.js`.
 
-- **Quantos testes a IA gerou especificamente para esta etapa?** Pendente.
-- **Quantos dos defeitos encontrados pela dupla esses testes detectaram?** Pendente.
-- **Por que isso aconteceu?** Pendente de análise comparativa entre os testes da dupla e os testes gerados pela IA, considerando como a IA determinou os resultados esperados.
+**Comando utilizado:**
+`node --test evidencias/testes-gerados-pela-ia.js`
+
+**Resultados:**
+- Testes gerados pela IA: 28
+- Testes aprovados: 28
+- Testes que falharam: 0
+- Defeitos confirmados no código original: 0 até o momento
+
+**Comparação com os testes da dupla:**
+
+A execução dos testes da IA não identificou defeitos
+na implementação. Na execução relatada por João Paulo,
+houve uma falha no teste DB01, relacionada ao uso de
+uma string no lugar de um valor booleano.
+
+Essa falha não comprova um defeito no código original.
+
+**Por que isso aconteceu?**
+
+Quando a IA gera testes para um código que ela mesma
+produziu, pode repetir suas próprias interpretações
+e deixar de identificar determinados problemas.
+Por isso, a revisão humana e os testes elaborados
+a partir dos requisitos são importantes.
+
+**Situação:** Execução dos 28 testes concluída.
+O registro do prompt original utilizado para gerar
+esses testes deve ser conferido em `prompts.md`.
+
 
 ## Parte 3: validação
 
