@@ -542,12 +542,11 @@ conforme identificado na Parte 3.
 
 **Francisco:**
 
-[Escrever reflexão pessoal sobre como pretende
-utilizar a IA na geração de código após a atividade.]
+Com essa atividade, aprendi que a inteligência artificial ajuda a criar códigos e testes de forma mais rápida, mas não podemos confiar em tudo sem conferir. A IA pode interpretar uma regra de maneira errada e repetir o mesmo erro nos testes, fazendo parecer que está tudo correto. Por isso, entendi a importância de comparar os resultados com os requisitos, verificar os valores de limite e compreender o que estou executando. Pretendo continuar utilizando a IA como ferramenta de apoio, mas mantendo a responsabilidade de revisar, testar e verificar o que ela produz.
 
 **João Paulo:**
 
-[Pendente de reflexão pessoal de João Paulo.]
+O que mais aprendi foi a importância de entender os requisitos para avaliar o código que a IA entrega. Executar os testes e ver tudo passar não garante que o sistema esteja pronto para ser usado. Também precisamos conferir se os testes cobrem as regras e se o sistema atende às necessidades do usuário. Depois dessa atividade, pretendo usar a IA para ajudar na programação, sempre revisando as respostas e procurando entender o motivo de cada resultado.
 
 ### Balanço
 
@@ -559,9 +558,6 @@ A IA pode auxiliar no desenvolvimento, mas suas
 respostas precisam ser analisadas criticamente,
 principalmente quando existem situações que não
 foram definidas claramente na especificação.
-
-## Parte 7: divisão do trabalho
-
 
 ## Parte 7: divisão do trabalho
 
