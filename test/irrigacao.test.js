@@ -173,3 +173,13 @@ test("AUT03: desliga bomba ao completar 60 minutos", () => {
 
   assert.equal(resultado, "DESLIGAR");
 });
+
+test('DB01: liga a bomba quando a umidade media e inferior a 30% e a bomba esta desligada', () => {
+  const resultado = decidirBomba('DESLIGADA', 25, 0);
+  assert.strictEqual(resultado, 'LIGAR');
+});
+
+test('DB02: desliga a bomba quando a umidade media e maior ou igual a 40% e a bomba esta ligada', () => {
+  const resultado = decidirBomba(true, 45, 15);
+  assert.strictEqual(resultado, 'DESLIGAR');
+});
