@@ -183,3 +183,13 @@ test('DB02: desliga a bomba quando a umidade media e maior ou igual a 40% e a bo
   const resultado = decidirBomba(true, 45, 15);
   assert.strictEqual(resultado, 'DESLIGAR');
 });
+
+test('DB03: desliga a bomba quando a umidade media e null e a bomba esta ligada', () => {
+  const resultado = decidirBomba(true, null, 10);
+  assert.strictEqual(resultado, 'DESLIGAR');
+});
+
+test('DB04: mantem o estado da bomba quando a umidade esta na faixa entre 30% e 40%', () => {
+  const resultado = decidirBomba('DESLIGADA', 35, 0);
+  assert.strictEqual(resultado, 'MANTER');
+});
