@@ -193,3 +193,29 @@ test('DB04: mantem o estado da bomba quando a umidade esta na faixa entre 30% e 
   const resultado = decidirBomba('DESLIGADA', 35, 0);
   assert.strictEqual(resultado, 'MANTER');
 });
+
+test('VA01: gera alerta de TEMPERATURA_ALTA quando temperatura for maior ou igual a 40 graus', () => {
+  const leituras = [{ umidade: 50, temperatura: 42 }];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['TEMPERATURA_ALTA']);
+});
+
+test('VA02: gera alerta de SOLO_CRITICO quando a umidade media for inferior a 15%', () => {
+  const leituras = [
+    { umidade: 10, temperatura: 25 },
+    { umidade: 10, temperatura: 25 },
+    { umidade: 10, temperatura: 25 }
+  ];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['SOLO_CRITICO']);
+});
+
+test('VA03: gera alerta de SENSOR_COM_FALHA quando as 3 leituras mais recentes forem invalidas', () => {
+  const leituras = [
+    { umidade: null, temperatura: null },
+    { umidade: null, temperatura: null },
+    { umidade: null, temperatura: null }
+  ];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['SENSOR_COM_FALHA']);
+});
