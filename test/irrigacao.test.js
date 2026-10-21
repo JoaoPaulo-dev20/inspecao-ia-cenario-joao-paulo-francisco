@@ -173,3 +173,65 @@ test("AUT03: desliga bomba ao completar 60 minutos", () => {
 
   assert.equal(resultado, "DESLIGAR");
 });
+
+test('DB01: liga a bomba quando a umidade media e inferior a 30% e a bomba esta desligada', () => {
+  const resultado = decidirBomba('DESLIGADA', 25, 0);
+  assert.strictEqual(resultado, 'LIGAR');
+});
+
+test('DB02: desliga a bomba quando a umidade media e maior ou igual a 40% e a bomba esta ligada', () => {
+  const resultado = decidirBomba(true, 45, 15);
+  assert.strictEqual(resultado, 'DESLIGAR');
+});
+
+test('DB03: desliga a bomba quando a umidade media e null e a bomba esta ligada', () => {
+  const resultado = decidirBomba(true, null, 10);
+  assert.strictEqual(resultado, 'DESLIGAR');
+});
+
+test('DB04: mantem o estado da bomba quando a umidade esta na faixa entre 30% e 40%', () => {
+  const resultado = decidirBomba('DESLIGADA', 35, 0);
+  assert.strictEqual(resultado, 'MANTER');
+});
+
+test('VA01: gera alerta de TEMPERATURA_ALTA quando temperatura for maior ou igual a 40 graus', () => {
+  const leituras = [{ umidade: 50, temperatura: 42 }];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['TEMPERATURA_ALTA']);
+});
+
+test('VA02: gera alerta de SOLO_CRITICO quando a umidade media for inferior a 15%', () => {
+  const leituras = [
+    { umidade: 10, temperatura: 25 },
+    { umidade: 10, temperatura: 25 },
+    { umidade: 10, temperatura: 25 }
+  ];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['SOLO_CRITICO']);
+});
+
+test('VA03: gera alerta de SENSOR_COM_FALHA quando as 3 leituras mais recentes forem invalidas', () => {
+  const leituras = [
+    { umidade: null, temperatura: null },
+    { umidade: null, temperatura: null },
+    { umidade: null, temperatura: null }
+  ];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['SENSOR_COM_FALHA']);
+});
+
+test('VA04: gera alertas de SOLO_CRITICO e TEMPERATURA_ALTA na ordem correta', () => {
+  const leituras = [
+    { umidade: 10, temperatura: 45 },
+    { umidade: 10, temperatura: 45 },
+    { umidade: 10, temperatura: 45 }
+  ];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['SOLO_CRITICO', 'TEMPERATURA_ALTA']);
+});
+
+test('VA05: nao gera alertas quando todas as leituras estiverem dentro da normalidade', () => {
+  const leituras = [{ umidade: 50, temperatura: 25 }];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, []);
+});
