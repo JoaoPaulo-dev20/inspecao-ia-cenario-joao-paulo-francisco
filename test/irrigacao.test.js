@@ -219,3 +219,19 @@ test('VA03: gera alerta de SENSOR_COM_FALHA quando as 3 leituras mais recentes f
   const resultado = verificarAlertas(leituras);
   assert.deepStrictEqual(resultado, ['SENSOR_COM_FALHA']);
 });
+
+test('VA04: gera alertas de SOLO_CRITICO e TEMPERATURA_ALTA na ordem correta', () => {
+  const leituras = [
+    { umidade: 10, temperatura: 45 },
+    { umidade: 10, temperatura: 45 },
+    { umidade: 10, temperatura: 45 }
+  ];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, ['SOLO_CRITICO', 'TEMPERATURA_ALTA']);
+});
+
+test('VA05: nao gera alertas quando todas as leituras estiverem dentro da normalidade', () => {
+  const leituras = [{ umidade: 50, temperatura: 25 }];
+  const resultado = verificarAlertas(leituras);
+  assert.deepStrictEqual(resultado, []);
+});
